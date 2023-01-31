@@ -1,5 +1,4 @@
 ﻿using GameHub.Entities;
-using System;
 
 namespace GameHub
 {
@@ -7,24 +6,40 @@ namespace GameHub
     {
         public static void Main(string[] args)
         {
+            Jogador jogador1 = new Jogador();
+            Jogador jogador2 = new Jogador();
 
-            Tabuleiro tabuleiroVelha = new Tabuleiro(3, 3);
 
+            Console.WriteLine("----Bem vindo ao jogo da Velha----");
+            Console.WriteLine();
+
+            Console.WriteLine("Digite o nome do primeiro jogador X: ");
+            jogador1.Nome = Console.ReadLine();
+
+            Console.WriteLine("Digite o nome do primeiro jogador O: ");
+            jogador2.Nome = Console.ReadLine();
+
+            
+            TabuleiroJogoDaVelha tabuleiroVelha = new TabuleiroJogoDaVelha(3, 3);
             tabuleiroVelha.MostrarTabuleiro();
+            Console.WriteLine();
+
             do
             {
-                Console.Write("Digite o nome do jogador X: ");
-                string jogador1 = Console.ReadLine();
-
                 Console.Write("jogada X:");
                 string jogada1 = Console.ReadLine()!;
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("--- Voces estao jogando o jogo da Velha ---");
+                Console.WriteLine("");
                 tabuleiroVelha.FazerJogada(jogada1, "X");
-
-                Console.Write("Digite o nome do jogador X: ");
-                string jogador2 = Console.ReadLine();
 
                 Console.Write("Jogada O:");
                 string jogada2 = Console.ReadLine()!;
+                Console.Clear();
+                Console.WriteLine("");
+                Console.WriteLine("--- Voces estao jogando o jogo da Velha ---");
+                Console.WriteLine("");
                 tabuleiroVelha.FazerJogada(jogada2, "O");
 
             } while (true);
